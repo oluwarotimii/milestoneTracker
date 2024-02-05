@@ -1,6 +1,6 @@
 import React from "react";
-import {Text, View} from React;
-import TabNavigator from "../navigation/TabNavigator";
+import {Text, View} from "react-native"
+import TabNavigator from "../../navigation/TabNavigator";
 
 const dashBoard = () => {
     return (
