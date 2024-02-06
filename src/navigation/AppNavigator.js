@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import BabyProfileSelection from "../component/screens/selectProfile";
 import ImageSelection from "../component/screens/image";
+import Settings from "../component/screens/settings";
 
 
 
@@ -69,6 +70,7 @@ const AppNavigator = () => {
             <Stack.Screen  name="Edit" component={EditMilestone}/>
             {/* <Stack.Screen  name="" component={}/> */}
           <Stack.Screen  name="ImageScreen" component={ImageSelection}/> 
+          <Stack.Screen  name="Settings" component={Settings}/>
         </Stack.Navigator>
         </NavigationContainer>
     )

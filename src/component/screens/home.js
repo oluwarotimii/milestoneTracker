@@ -33,7 +33,14 @@ const Home = ({ navigation }) => {
                 
                 <Image source={item.profileImage} style={styles.profileImage} />
               </TouchableOpacity>
-              <Text style={styles.itemName}>{item.name}</Text>
+              
+            </View>
+            <View style={{
+                borderWidth: 1,
+                bottom: 160,
+                position: "absolute",
+            }}>
+            <Text style={styles.itemName}>{item.name}</Text>
             </View>
           </View>
         );
@@ -58,7 +65,7 @@ const Home = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor={Colors.white} />
+            <StatusBar backgroundColor= 'orange' />
             <View style={styles.headerView}>
             <Text style={styles.headerTxt}> HOME</Text>
             </View>
@@ -86,12 +93,13 @@ const Home = ({ navigation }) => {
             ):(
                 NoListRender()
             )}
-            <View>
+          
+      </View>
+      {/* <View>
                 <TouchableOpacity style={styles.createIcon} onPress={() => navigation.navigate('Create-baby')}>
                     <Icon name='plus' size={30} />
                 </TouchableOpacity>
-            </View>
-      </View>
+            </View> */}
         </SafeAreaView>
     )
 };
@@ -144,8 +152,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.orange,
         elevation: 5,
         // marginHorizontal: '10',
-        bottom: 90,
-        right: 170,
+        bottom: 9,
+        right: 17,
     },
     createTxt:{
         fontWeight: 'bold',
@@ -180,8 +188,10 @@ const styles = StyleSheet.create({
         // borderColor: Colors.white,
         // borderWidth: 2,
         borderRadius: 5,
-        width: width *  0.12,
-        height: '25%',
+        width: width,
+        // height: '50%',
+        height: height * 0.5,
+        flexWrap: 'wrap',
         top: '15%',
         // left: '10%',
         justifyContent: 'center',
@@ -204,11 +214,11 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     itemName :{
-        fontSize: 18,
-        top: 1, 
+        fontSize: 11,
+        top: 122, 
         fontWeight: '600',
         // borderWidth: 1,
-        marginTop: 30,
+        marginTop: 300,
 
     },
     profileBox: {
@@ -227,7 +237,7 @@ const styles = StyleSheet.create({
       itemName: {
         fontSize: 18,
         fontWeight: '600',
-        marginBottom: 5,
+        // marginBottom: 5,
       },
 })
 

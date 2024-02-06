@@ -1,3 +1,35 @@
+Description of this app and explantion for design choices
+
+# Getting Started
+
+>**Note**:  This app is a Baby's milestone Tracker App for mohters to track the  growth of their chidren, (babies) as they grow older this app will help record events and important occasisons in the lifes of the younger ones
+
+## Architeture
+
+This app was built in the follwing sequece, first made sure it was possbile to create profiles, this is for the babies ad people have multiple babies, then  each profile is assigned an ID now when creating a milestone,  each milestoneis tied to a  baby profile. while creating the baby profile one can include the baby's weight, gender and also choose  an avatar.
+
+## TECH STACK
+Firstly this project was built with React-Native. using the JSX syntax.
+Now going further I used the Async Storage to manage the local storage for the app data like profiles, milestone, 
+
+
+## Explanation
+Starting with the onboaring, I used a flatList to make the carouseel,  from there the user navigates to the Home Screen, I implemeted a simple greeting function   that changes the greeting with the time of day. 
+Now for the  navigation I used the react navigation I used the stack and Bottom Tab bar navigation, it contains three screens the button  in the middle is for creating the mileston, the Home screen displays a carousel of the baby profiles available and  underneath a  button to  create more profile this is where one ca select an avatar and put in the Name and date if birth gender and all other details, I used hooks uSeState and useEffect alot in  this project mostly for the state management.
+
+The colors I chose were orange and white, and the color of my illustrations formy onboarding were darker and closer to the asphalt colors
+ Now in the middle button the Botto Tab bar take the user to a page to sekect a profile, this is to create a mislestone perculiar to a baby n the case they have multiple profiles, anad the last Tab is to list the  Milestones avaivalbele on the app all in one pplace with  the avatars and names of the profile the milestone belongs to infront of it. In this project I used the Vector Icons 
+
+
+
+
+
+
+
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -79,27 +111,6 @@ To learn more about React Native, take a look at the following resources:
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
 
 
-Description of this app and explantion for design choices
-
-# Getting Started
-
->**Note**:  This app is a Baby's milestone Tracker App for mohters to track the  growth of their chidren, (babies) as they grow older this app will help record events and important occasisons in the lifes of the younger ones
-
-## Architeture
-
-This app was built in the follwing sequece, first made sure it was possbile to create profiles, this is for the babies ad people have multiple babies, then  each profile is assigned an ID now when creating a milestone,  each milestoneis tied to a  baby profile. while creating the baby profile one can include the baby's weight, gender and also choose  an avatar.
-
-## TECH STACK
-Firstly this project was built with React-Native. using the JSX syntax.
-Now going further I used the Async Storage to manage the local storage for the app data like profiles, milestone, 
-
-
-## Explanation
-Starting with the onboaring, I used a flatList to make the carouseel,  from there the user navigates to the Home Screen, I implemeted a simple greeting function   that changes the greeting with the time of day. 
-Now for the  navigation I used the react navigation I used the stack and Bottom Tab bar navigation, it contains three screens the button  in the middle is for creating the mileston, the Home screen displays a carousel of the baby profiles available and  underneath a  button to  create more profile this is where one ca select an avatar and put in the Name and date if birth gender and all other details, I used hooks uSeState and useEffect alot in  this project mostly for the state management.
-
-The colors I chose were orange and white, and the color of my illustrations formy onboarding were darker and closer to the asphalt colors
- Now in the middle button the Botto Tab bar take the user to a page to sekect a profile, this is to create a mislestone perculiar to a baby n the case they have multiple profiles, anad the last Tab is to list the  Milestones avaivalbele on the app all in one pplace with  the avatars and names of the profile the milestone belongs to infront of it. In this project I iused the Vector Icons 
 
 
 ## Step 2: Start your Application

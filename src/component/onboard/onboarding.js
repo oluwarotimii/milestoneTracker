@@ -13,7 +13,7 @@ import {
 
 const {width, height} = Dimensions.get('window');
 
-const COLORS = {primary: '#282534', white: '#fff'};
+const COLORS = {primary: '#fff', orange: 'orange'};
 
 const slides = [
   {
@@ -98,7 +98,7 @@ const OnboardingScreen = ({navigation}) => {
               style={[
                 styles.indicator,
                 currentSlideIndex == index && {
-                  backgroundColor: COLORS.white,
+                  backgroundColor: COLORS.orange,
                   width: 25,
                 },
               ]}
@@ -125,7 +125,7 @@ const OnboardingScreen = ({navigation}) => {
                 style={[
                   styles.btn,
                   {
-                    borderColor: COLORS.white,
+                    borderColor: COLORS.orange,
                     borderWidth: 1,
                     backgroundColor: 'transparent',
                   },
@@ -135,7 +135,7 @@ const OnboardingScreen = ({navigation}) => {
                   style={{
                     fontWeight: 'bold',
                     fontSize: 15,
-                    color: COLORS.white,
+                    color: COLORS.orange,
                   }}>
                   SKIP
                 </Text>
@@ -180,7 +180,7 @@ const OnboardingScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   subtitle: {
-    color: COLORS.white,
+    color: COLORS.orange,
     fontSize: 13,
     marginTop: 10,
     maxWidth: '70%',
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
   },
   title: {
-    color: COLORS.white,
+    color: COLORS.orange,
     fontSize: 22,
     fontWeight: 'bold',
     marginTop: 20,

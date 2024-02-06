@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import CreateMilestone from "../component/screens/createMilestone";
 import { View, StyleSheet } from "react-native";
 import BabyProfileSelection from "../component/screens/selectProfile";
+import CreateBaby from "../component/screens/createBaby";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,10 +46,22 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: ({ focused }) => focused ? 'Home' : null,
           tabBarIcon: ({ focused }) => (
-            <Icon name='home' size={30} color={focused ? 'black' : '#9594e5'} />
+            <Icon name='home' size={30} color={focused ? 'orange' : '#9594e5'} />
           ),
         }}
       />
+      
+      <Tab.Screen
+        name="Create-baby"
+        component={CreateBaby}
+        options={{
+          tabBarLabel: ({ focused }) => focused ? 'Create' : null,
+          tabBarIcon: ({ focused }) => (
+            <Icon name='add-user' size={30} color={focused ? 'orange' : '#9594e5'} />
+          ),
+        }}
+      />
+      
       <Tab.Screen
         name="Create"
         component={BabyProfileSelection}
@@ -56,7 +69,7 @@ const TabNavigator = () => {
           tabBarLabel: ({ focused }) => focused ? 'Create' : null,
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.circleFocused : styles.circle}>
-              <Icon name='plus' size={30} color={focused ? Colors.white : '#9594e5'} />
+              <Icon name='plus' size={30} color={focused ? 'orange' : '#9594e5'} />
             </View>
           ),
         }}
@@ -67,7 +80,18 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: ({ focused }) => focused ? 'Milestones' : null,
           tabBarIcon: ({ focused }) => (
-            <Icon name='flag' size={30} color={focused ? 'black' : '#9594e5'} />
+            <Icon name='flag' size={30} color={focused ? 'orange' : '#9594e5'} />
+          ),
+        }}
+      />
+
+<Tab.Screen
+        name="Settings"
+        component={CreateBaby}
+        options={{
+          tabBarLabel: ({ focused }) => focused ? 'Create' : null,
+          tabBarIcon: ({ focused }) => (
+            <Icon name='edit' size={30} color={focused ? 'orange' : '#9594e5'} />
           ),
         }}
       />
