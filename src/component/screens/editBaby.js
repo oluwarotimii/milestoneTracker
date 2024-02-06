@@ -1,9 +1,8 @@
 import React,{ useState }   from "react";
 import milestones from "../utils/milestones";
-import { Icon } from "../utils/icon";
 import { pickImage,saveImage } from "../utils/imagePicker";
 import { getBabyProfiles, updateBabyProfile } from "../utils/storageUtils";
-import { Button } from "react-native";
+import { Button, View, Text, Alert } from "react-native";
 
 const editBaby = () => {
     const [babyName, setBabyName] = useState();
@@ -12,7 +11,7 @@ const editBaby = () => {
     const [babyImage, setBabyImage] = useState(null);
     
 
-    const handlePickImage = () => {
+    const handlePickImage = ( {navigation }) => {
         const options = {
             title: 'Select Image',
             storageOptions: {
@@ -34,6 +33,8 @@ const editBaby = () => {
         try {
             const updatedBabyProfile = await saveBabyProfile(babyProfile);
             console.log('Saved Baby  profile : ', updatedBabyProfile );
+            Alert.alert('Baby Profile created sucessfully.')
+            navigation.navigate('Baby-Profile', { profileId: updatedBabyProfile.id }); 
         } catch (error) {
             console.error('Error saving baby profile', error);
         }
@@ -43,16 +44,16 @@ const editBaby = () => {
     return (
         <View style={styles.container}>
            <View style={styles.header}>
-           <TouchableOpacity style={styles.backBtn}>
+           <TouchableOpacity style={styles.backBtn} onPress={() => navigation.navigate('Baby-Profile')}>
                 {Icon.left}
              </TouchableOpacity>    
              <Text style={styles.headerTxt}> Create Baby Profile</Text>
            </View>
             <View style={styles.createContainer}>
-                {/* <View style={styles.imageContainer}>
-                    <Button title="Pick Image" />
+                <View style={styles.imageContainer}>
+                    <Button title="Pick Image"  onPress={handlePickImage} />
                     {babyImage && <Image  source={babyImage} style={styles.image}/>}
-                </View> */}
+                </View>
                 <View style={styles.infoContainer}>
                     <TextInput 
                     placeholder= 'Baby name'
@@ -69,8 +70,8 @@ const editBaby = () => {
                     value={weight}
                     onChangeText={(text) => setWeight(text) } />
                 </View>
-                <TouchableOpacity style={styles.submitBtn}>
-                    <Text style={styles.submitTxt}> Save </Text>
+                <TouchableOpacity style={styles.submitBtn}  onPress={handleSavebabyProfile}>
+                    <Text style={styles.submitTxt}> SAVE </Text>
                 </TouchableOpacity>
             </View>
         </View>

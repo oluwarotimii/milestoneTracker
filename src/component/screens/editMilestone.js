@@ -1,7 +1,10 @@
+// EDIT MILETONES
+
+
 import React, { useEffect, useState } from "react";
-import {Text,TextInput,Button, View, StyleSheet, Image, Button } from "react-native";
+import {Text,TextInput,Button, View, StyleSheet, Image } from "react-native";
 import { getMilestones, updateMilestone } from "../utils/storageUtils";
-import { CachesDirectoryPath } from "react-native-fs";
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const EditMilestone = ({route, navigation}) => {
     const {milestoneId } = route.params
@@ -24,7 +27,7 @@ const EditMilestone = ({route, navigation}) => {
         try {
             const updateMilestones = await updateMilestone(milestoneId, milestone);
             console.log('updated Milestones', updateMilestones)
-            nsvihgstion.goBack();
+            navigation.navigate('Milestone-View', { milestoneId: milestone.id });
          }
          catch (error) {
             console.error('Error updating Milestone:', error);
@@ -37,8 +40,8 @@ const EditMilestone = ({route, navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-            <TouchableOpacity style={styles.backBtn}>
-                {Icon.left}
+            <TouchableOpacity style={styles.backBtn}  onPress={() => navigation.goBack()}>
+                <Icon name='left' size={20} />
              </TouchableOpacity>    
              <Text style={styles.headerTxt}>Edit Milestone</Text>  
             </View>
@@ -52,10 +55,13 @@ const EditMilestone = ({route, navigation}) => {
                     value={milestone.date}
                     // onChangeText={(text) => setMilestone((prevMilestone) => {...prevMilestone, date : text})}
                      /> 
-                    <TextInput style={styles.milestoneDate}> Date of the milestone</TextInput>
+                    <TextInput
+                    placeholder="Date of Milestone" style={styles.milestoneDate} /> 
                 </View>
                 <View style={styles.notesContainer}>
-                    <TextInput styles={styles.notesTxt}> The Special Notes inputed pevious</TextInput>
+                    <TextInput
+                    placeholder="Add notes" 
+                    styles={styles.notesTxt} /> 
                 </View>
             </View>
 

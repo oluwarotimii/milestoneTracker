@@ -18,12 +18,25 @@ export const saveBabyProfile = async (babyProfile) => {
   }
 };
 
+//Function to get the list of all the Profiles
 export const getBabyProfiles = async () => {
   try {
     const storedBabyProfilesJSON = await AsyncStorage.getItem(BABY_PROFILES_KEY);
     return storedBabyProfilesJSON ? JSON.parse(storedBabyProfilesJSON) : [];
   } catch (error) {
     console.error('Error loading baby profiles:', error);
+    throw error;
+  }
+};
+
+// Function to get a specific baby profile by ID
+export const getBabyProfile = async (profileId) => {
+  try {
+    const profilesJson = await AsyncStorage.getItem('babyProfiles');
+    const profiles = profilesJson ? JSON.parse(profilesJson) : [];
+    return profiles.find((profile) => profile.id === profileId) || null;
+  } catch (error) {
+    console.error('Error fetching baby profile', error);
     throw error;
   }
 };
@@ -52,6 +65,19 @@ export const saveMilestone = async (milestone) => {
     return updatedMilestones;
   } catch (error) {
     console.error('Error saving milestone:', error);
+    throw error;
+  }
+};
+
+export const deleteMilestone = async (milestoneId) => {
+  try {
+    const storedMilestonesJSON = await AsyncStorage.getItem(MILESTONES_KEY);
+    let storedMilestones = storedMilestonesJSON ? JSON.parse(storedMilestonesJSON) : [];
+    storedMilestones = storedMilestones.filter((milestone) => milestone.id !== milestoneId);
+    await AsyncStorage.setItem(MILESTONES_KEY, JSON.stringify(storedMilestones));
+    return storedMilestones;
+  } catch (error) {
+    console.error('Error deleting milestone:', error);
     throw error;
   }
 };
