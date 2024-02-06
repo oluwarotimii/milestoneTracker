@@ -13,7 +13,7 @@ import {
 
 const {width, height} = Dimensions.get('window');
 
-const COLORS = {primary: '#fff', orange: 'orange'};
+const COLORS = {primary: 'white', white: 'orange'};
 
 const slides = [
   {
@@ -98,7 +98,7 @@ const OnboardingScreen = ({navigation}) => {
               style={[
                 styles.indicator,
                 currentSlideIndex == index && {
-                  backgroundColor: COLORS.orange,
+                  backgroundColor: COLORS.white,
                   width: 25,
                 },
               ]}
@@ -125,7 +125,7 @@ const OnboardingScreen = ({navigation}) => {
                 style={[
                   styles.btn,
                   {
-                    borderColor: COLORS.orange,
+                    borderColor: COLORS.white,
                     borderWidth: 1,
                     backgroundColor: 'transparent',
                   },
@@ -135,7 +135,7 @@ const OnboardingScreen = ({navigation}) => {
                   style={{
                     fontWeight: 'bold',
                     fontSize: 15,
-                    color: COLORS.orange,
+                    color: COLORS.white,
                   }}>
                   SKIP
                 </Text>
@@ -162,7 +162,7 @@ const OnboardingScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
-      <StatusBar backgroundColor={COLORS.primary} />
+      <StatusBar backgroundColor='orange' />
       <FlatList
         ref={ref}
         onMomentumScrollEnd={updateCurrentSlideIndex}
@@ -180,7 +180,7 @@ const OnboardingScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   subtitle: {
-    color: COLORS.orange,
+    color: COLORS.white,
     fontSize: 13,
     marginTop: 10,
     maxWidth: '70%',
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
   },
   title: {
-    color: COLORS.orange,
+    color: COLORS.white,
     fontSize: 22,
     fontWeight: 'bold',
     marginTop: 20,
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     borderRadius: 5,
-    backgroundColor: '#fff',
+    backgroundColor: 'orange',
     justifyContent: 'center',
     alignItems: 'center',
   },

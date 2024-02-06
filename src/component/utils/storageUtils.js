@@ -69,6 +69,7 @@ export const saveMilestone = async (milestone) => {
   }
 };
 
+
 export const deleteMilestone = async (milestoneId) => {
   try {
     const storedMilestonesJSON = await AsyncStorage.getItem(MILESTONES_KEY);

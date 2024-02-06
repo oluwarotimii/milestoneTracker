@@ -31,7 +31,7 @@ const AppNavigator = () => {
         setIsAppFirstLaunched(true);
         AsyncStorage.setItem('isAppFirstLaunched', 'false');
       } else {
-        setIsAppFirstLaunched(false);
+        setIsAppFirstLaunched(true);
       }
   
       // AsyncStorage.removeItem('isAppFirstLaunched');

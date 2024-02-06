@@ -8,9 +8,9 @@ const TimeOfday = () => {
     useEffect(() => {
         const getCurrentTime = () => {
             const currentHour = new Date().getHours();  // Corrected: Added parentheses to getHours()
-            if (currentHour >= 0 && currentHour <= 12) {
+            if (currentHour >= 0 && currentHour <= 11) {
                 setGreetings('Good Morning');
-            } else if (currentHour >= 12 && currentHour < 17) {
+            } else if (currentHour >= 11 && currentHour < 17) {
                 setGreetings('Good Afternoon');
             } else {
                 setGreetings('Good Evening');

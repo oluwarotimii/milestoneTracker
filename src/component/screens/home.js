@@ -1,5 +1,5 @@
 import React from "react";
-import {Text,StyleSheet,TouchableOpacity, Dimensions,SafeAreaView, FlatList, View, StatusBar, Image} from "react-native";
+import { Text, StyleSheet, TouchableOpacity, Dimensions, SafeAreaView, FlatList, View, StatusBar, Image } from "react-native";
 import Colors from "../utils/colors";
 import TimeOfday from "../utils/dayTime";
 import { getBabyProfiles } from "../utils/storageUtils";
@@ -7,11 +7,11 @@ import { useState, useEffect } from "react";
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const Home = ({ navigation }) => {
     const [babyProfile, setBabyProfile] = useState([]);
-    
+
 
     useEffect(() => {
         const fetchProfiles = async () => {
@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
                 const storedBabyProfiles = await getBabyProfiles();
                 setBabyProfile(storedBabyProfiles);
             } catch (error) {
-                console.error( 'Error loading Profiles', error);
+                console.error('Error loading Profiles', error);
             }
         };
 
@@ -27,75 +27,75 @@ const Home = ({ navigation }) => {
     }, []);
     const ListRender = ({ item }) => {
         return (
-          <View style={styles.Mscontainer}>
-            <View style={styles.profileBox}>
-              <TouchableOpacity style={styles.addProfile} onPress={() => navigation.navigate('Baby-Profile')}>
-                
-                <Image source={item.profileImage} style={styles.profileImage} />
-              </TouchableOpacity>
-              
+            <View style={styles.Mscontainer}>
+                <View style={styles.profileBox}>
+                    <TouchableOpacity style={styles.addProfile} onPress={() => navigation.navigate('Baby-Profile')}>
+
+                        <Image source={item.profileImage} style={styles.profileImage} />
+                    </TouchableOpacity>
+
+                </View>
+                <View style={{
+                    borderWidth: 1,
+                    bottom: 160,
+                    position: "absolute",
+                }}>
+                    <Text style={styles.itemName}>{item.name}</Text>
+                </View>
             </View>
-            <View style={{
-                borderWidth: 1,
-                bottom: 160,
-                position: "absolute",
-            }}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            </View>
-          </View>
         );
-      };
+    };
 
     const NoListRender = () => {
-    
+
         return (
             <View style={styles.profileContainer}>
-            <Text style={styles.createTxt}> Create a  baby's Profile</Text>
-            <TouchableOpacity style={styles.addProfile} 
-            onPress={() => navigation.navigate('Baby-Profile')}>
-                <TouchableOpacity style={styles.backBtn}  onPress={() => navigation.goBack()}>
-                <Icon name='left' size={20} />
-             </TouchableOpacity>  
-            </TouchableOpacity>
-        </View>
+                <Text style={styles.createTxt}> Create a  baby's Profile</Text>
+                <TouchableOpacity style={styles.addProfile}
+                    onPress={() => navigation.navigate('Baby-Profile')}>
+                    <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+                        <Icon name='left' size={20} />
+                    </TouchableOpacity>
+                </TouchableOpacity>
+            </View>
         )
     };
 
-   
+
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor= 'orange' />
+            <StatusBar backgroundColor='orange' />
             <View style={styles.headerView}>
-            <Text style={styles.headerTxt}> HOME</Text>
+                <Text style={styles.headerTxt}> HOME</Text>
             </View>
             <View style={styles.welcome}>
                 <TimeOfday />
             </View>
-      <View style={{
-        flexDirection: 'row',
-        borderWidth: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        width,
-        // height: 100,
-      }}>
-      {babyProfile.length > 0 ? (
-                <FlatList
-                // scrollEnabled={false}
-                pagingEnabled
-                horizontal
-            data={babyProfile}
-            keyExtractor={( item) => item.id}
-            renderItem={ListRender} /> 
-            
-            ):(
-                NoListRender()
-            )}
-          
-      </View>
-      {/* <View>
+            <View style={{
+                flexDirection: 'row',
+                borderWidth: 1,
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                width,
+                // height: 100,
+            }}>
+                {babyProfile.length > 0 ? (
+                    <FlatList
+                        // scrollEnabled={false}
+                        pagingEnabled
+                        horizontal
+                        data={babyProfile}
+                        keyExtractor={(item) => item.id}
+                        renderItem={ListRender} />
+
+                ) : (
+                    NoListRender()
+                )}
+
+            </View>
+            {/* <View>
                 <TouchableOpacity style={styles.createIcon} onPress={() => navigation.navigate('Create-baby')}>
                     <Icon name='plus' size={30} />
                 </TouchableOpacity>
@@ -105,12 +105,12 @@ const Home = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         backgroundColor: Colors.white,
         height,
-        flex:1 ,
+        flex: 1,
     },
-    headerView:{
+    headerView: {
         borderColor: '#ddd',
         borderBottomWidth: 1,
         backgroundColor: Colors.white,
@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    headerTxt:{
+    headerTxt: {
         fontSize: 20,
         fontWeight: 'bold',
         justifyContent: 'center',
     },
-    welcome:{
+    welcome: {
         borderColor: '#ddd',
-        borderWidth: 1,
+        // borderWidth: 1,
         width: '100%',
         height: '5%',
         marginVertical: '5%',
@@ -136,14 +136,14 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
         backgroundColor: Colors.white,
     },
-    profileContainer:{
+    profileContainer: {
         // borderWidth: 1,
     },
-    createIcon:{
+    createIcon: {
         borderColor: Colors.white,
         borderWidth: 2,
         borderRadius: 5,
-        width: width *  0.12,
+        width: width * 0.12,
         height: '7%',
         top: '5%',
         // left: '10%',
@@ -155,13 +155,13 @@ const styles = StyleSheet.create({
         bottom: 9,
         right: 17,
     },
-    createTxt:{
+    createTxt: {
         fontWeight: 'bold',
         fontSize: 15,
         // borderWidth: 1,
         paddingHorizontal: '2%',
     },
-    Mscontainer:{ 
+    Mscontainer: {
         borderWidth: 1,
         width,
         height: height * 0.5,
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
         // justifyContent: "center",
         // alignItems: "center",
         // flexDirection: 'column',
-        
+
     },
     // profileBox:{
     //     width: '100%',
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     //     flexWrap: 'wrap',
     //     marginHorizontal: 10,
     // },
-    addProfile:{
+    addProfile: {
         // borderColor: Colors.white,
         // borderWidth: 2,
         borderRadius: 5,
@@ -200,11 +200,11 @@ const styles = StyleSheet.create({
         elevation: 5,
         // marginHorizontal: '10',
     },
-    floaterBtn:{
+    floaterBtn: {
         borderWidth: 2,
         broderColor: 'black',
         position: 'absolute',
-        width: '14%',  
+        width: '14%',
         height: '100%',
         top: 400,
         left: 165,
@@ -213,9 +213,9 @@ const styles = StyleSheet.create({
         padding: 15,
         elevation: 5,
     },
-    itemName :{
+    itemName: {
         fontSize: 11,
-        top: 122, 
+        top: 122,
         fontWeight: '600',
         // borderWidth: 1,
         marginTop: 300,
@@ -223,22 +223,21 @@ const styles = StyleSheet.create({
     },
     profileBox: {
         width: width,
-        height: '60%', // Adjust the height as needed
+        height: '60%', 
         // flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-      },
-      profileImage: {
+    },
+    profileImage: {
         width: '100%',
-        height: '70%', // Adjust the height as needed
-        borderRadius: 10, // Add border radius for a rounded look
+        height: '70%', 
         marginBottom: 10,
-      },
-      itemName: {
+    },
+    itemName: {
         fontSize: 18,
         fontWeight: '600',
         // marginBottom: 5,
-      },
+    },
 })
 
 export default Home;

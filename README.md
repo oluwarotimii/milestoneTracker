@@ -6,7 +6,7 @@ Description of this app and explantion for design choices
 
 ## Architeture
 
-This app was built in the follwing sequece, first made sure it was possbile to create profiles, this is for the babies ad people have multiple babies, then  each profile is assigned an ID now when creating a milestone,  each milestoneis tied to a  baby profile. while creating the baby profile one can include the baby's weight, gender and also choose  an avatar.
+This app was built in the follwing sequece, first made sure it was possbile to create profiles, this is for the babies ad people have multiple babies, then  each profile is assigned an ID now when creating a milestone,  each milestones istied to a  baby profile.  Also eaach milestone possess an ID for when  they are to be view individually, while creating the baby profile one can include the baby's weight, gender and also choose  an avatar.
 
 ## TECH STACK
 Firstly this project was built with React-Native. using the JSX syntax.
@@ -14,11 +14,15 @@ Now going further I used the Async Storage to manage the local storage for the a
 
 
 ## Explanation
-Starting with the onboaring, I used a flatList to make the carouseel,  from there the user navigates to the Home Screen, I implemeted a simple greeting function   that changes the greeting with the time of day. 
-Now for the  navigation I used the react navigation I used the stack and Bottom Tab bar navigation, it contains three screens the button  in the middle is for creating the mileston, the Home screen displays a carousel of the baby profiles available and  underneath a  button to  create more profile this is where one ca select an avatar and put in the Name and date if birth gender and all other details, I used hooks uSeState and useEffect alot in  this project mostly for the state management.
+Starting with the onboaring, I used a flatList to make the carouseel,  from there the user navigates to the Home Screen, I implemeted a simple greeting function  that changes the greeting with the time of day. 
+Now for the  navigation I used the react navigation, I used the stack and Bottom Tab bar navigation, it contains four screens the button  in the middle is for creating the milestone, the Home screen displays a carousel of the baby profiles available and  underneath a  button to  create more profile this is where one can select an avatar and put in the Name and date 0f birth gender and all other details, I used hooks useState and useEffect  in  this project mostly for the state management.
 
-The colors I chose were orange and white, and the color of my illustrations formy onboarding were darker and closer to the asphalt colors
- Now in the middle button the Botto Tab bar take the user to a page to sekect a profile, this is to create a mislestone perculiar to a baby n the case they have multiple profiles, anad the last Tab is to list the  Milestones avaivalbele on the app all in one pplace with  the avatars and names of the profile the milestone belongs to infront of it. In this project I used the Vector Icons 
+The colors I chose were orange, gray and white, and the color of my illustrations for my onboarding were darker and closer to the asphalt colors.
+The second tab  in the bottom navigation is to create a new profile.
+ Now in the middle button the Bottom Tab bar take the user to a page to select a profile, this is to create a mislestone perculiar to a baby and in the case they have multiple profiles, and the last Tab is to list the  Milestones available on the app all in one pplace with  the avatars and names of the profile the milestone belongs to infront of it. In this project I used the Vector Icons.
+
+ Upon completion of the project, the app will efficiently serve as a haaven for mother and everyone to documentand cherish milestones.
+ Thank you.
 
 
 

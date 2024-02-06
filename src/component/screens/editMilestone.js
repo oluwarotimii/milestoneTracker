@@ -2,12 +2,12 @@
 
 
 import React, { useEffect, useState } from "react";
-import {Text,TextInput,Button, View, StyleSheet, Image } from "react-native";
+import { Text, TextInput, Button, View, StyleSheet, Image } from "react-native";
 import { getMilestones, updateMilestone } from "../utils/storageUtils";
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const EditMilestone = ({route, navigation}) => {
-    const {milestoneId } = route.params
+const EditMilestone = ({ route, navigation }) => {
+    const { milestoneId } = route.params
     const [milestone, setMilestone] = useState({});
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const EditMilestone = ({route, navigation}) => {
             try {
                 const milestones = await getMilestones();
                 const selectedMilestone = milestones.find((item) => item.id === milestoneId);
-                setMilestone(selectedMilestone || {} );
+                setMilestone(selectedMilestone || {});
             } catch (error) {
                 console.error('Error loading milestone:', error);
             }
@@ -28,52 +28,52 @@ const EditMilestone = ({route, navigation}) => {
             const updateMilestones = await updateMilestone(milestoneId, milestone);
             console.log('updated Milestones', updateMilestones)
             navigation.navigate('Milestone-View', { milestoneId: milestone.id });
-         }
-         catch (error) {
+        }
+        catch (error) {
             console.error('Error updating Milestone:', error);
 
-         }
+        }
     };
-     
+
 
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-            <TouchableOpacity style={styles.backBtn}  onPress={() => navigation.goBack()}>
-                <Icon name='left' size={20} />
-             </TouchableOpacity>    
-             <Text style={styles.headerTxt}>Edit Milestone</Text>  
+                <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+                    <Icon name='left' size={20} />
+                </TouchableOpacity>
+                <Text style={styles.headerTxt}>Edit Milestone</Text>
             </View>
             <View style={styles.editContainer}>
                 {/* <View style={styles.imageContainer}>
                     <Image />
                 </View> */}
                 <View style={styles.infoContainer}>
-                    <TextInput 
-                    placeholder="milestone"
-                    value={milestone.date}
-                    // onChangeText={(text) => setMilestone((prevMilestone) => {...prevMilestone, date : text})}
-                     /> 
                     <TextInput
-                    placeholder="Date of Milestone" style={styles.milestoneDate} /> 
+                        placeholder="milestone"
+                        value={milestone.date}
+                    // onChangeText={(text) => setMilestone((prevMilestone) => {...prevMilestone, date : text})}
+                    />
+                    <TextInput
+                        placeholder="Date of Milestone" style={styles.milestoneDate} />
                 </View>
                 <View style={styles.notesContainer}>
                     <TextInput
-                    placeholder="Add notes" 
-                    styles={styles.notesTxt} /> 
+                        placeholder="Add notes"
+                        styles={styles.notesTxt} />
                 </View>
             </View>
 
-            <Button  title="Update" onPress={handleUpdateMilestone} />
+            <Button title="Update" onPress={handleUpdateMilestone} />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {},
-    header:{
-        flexDirection:'row',
+    header: {
+        flexDirection: 'row',
         // justifyContent: 'center',
         width: '100%',
         height: '10%',
@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
         height: '10%',
     },
     editContainer: {},
-    imageContainer:{},
+    imageContainer: {},
     infoContainer: {},
-    milestoneTxt:{},
-    milestoneDate:{},
+    milestoneTxt: {},
+    milestoneDate: {},
     notesContainer: {},
-    notesTxt:{},
+    notesTxt: {},
 })
 export default EditMilestone;
